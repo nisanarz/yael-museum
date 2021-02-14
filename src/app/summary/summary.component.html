@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row">
+    <h2>
+      כותרת לעמוד הסיכום מגיעה כאן
+    </h2>   
+  </div>
+  <div class="row" *ngFor="let result of results | async">
+    <div class="col-12">
+      <div class="chart-wrapper">
+        <canvas baseChart 
+          [data]="result" 
+          [labels]="pieChartLabels" 
+          [chartType]="pieChartType"
+          [options]="pieChartOptions"
+          [plugins]="pieChartPlugins"
+          [legend]="pieChartLegend"
+          [colors]="pieChartColors">
+        </canvas>
+      </div>
+    </div>
+    
+  </div>
+
+  <div class="row">
+    <div class="col-4"></div>
+    <div class="col-4">
+      <h2>
+        !תודה
+      </h2>
+    </div>
+  </div>
+</div>
+
+
