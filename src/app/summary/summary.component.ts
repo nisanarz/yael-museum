@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartType, ChartOptions } from 'chart.js';
 import { SingleDataSet, Label, Color, monkeyPatchChartJsLegend, monkeyPatchChartJsTooltip } from 'ng2-charts';
+import { ActivatedRoute} from '@angular/router';
 import { AngularFireDatabase, AngularFireList, AngularFireObject } from '@angular/fire/database';
 import { Observable } from 'rxjs';
 
@@ -12,6 +13,9 @@ import { Observable } from 'rxjs';
 })
 export class SummaryComponent implements OnInit {
   results:any;
+  questionId = 0;
+  questions: any;
+  isDataAvailable:boolean = false;
 
   public pieChartOptions: ChartOptions = {
     responsive: true,
@@ -27,10 +31,27 @@ export class SummaryComponent implements OnInit {
     }
   ]
 
-  constructor(private db: AngularFireDatabase) {
-    this.results = this.db.list('results').valueChanges();
-    monkeyPatchChartJsTooltip();
-    monkeyPatchChartJsLegend();
+  constructor(private db: AngularFireDatabase, private route: ActivatedRoute) {
+    this.route.params.subscribe(params => {
+      this.questionId = +params['id']; // (+) converts string 'id' to a number
+
+      this.db.list('results').valueChanges().subscribe(results => {
+        this.results = results[this.questionId];
+        console.log(this.results)
+        this.db.list('questions').valueChanges().subscribe(questions => {
+          this.questions = questions[this.questionId];
+          this.pieChartLabels = this.questions['answers'];
+          this.isDataAvailable = true;
+        });
+        monkeyPatchChartJsTooltip();
+        monkeyPatchChartJsLegend();
+        
+      });
+
+      
+      
+   });
+    
    }
 
   ngOnInit(): void {

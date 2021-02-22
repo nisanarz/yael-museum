@@ -4,11 +4,11 @@
       כותרת לעמוד הסיכום מגיעה כאן
     </h2>   
   </div>
-  <div class="row" *ngFor="let result of results | async">
+  <div class="row" *ngIf="isDataAvailable">
     <div class="col-12">
       <div class="chart-wrapper">
         <canvas baseChart 
-          [data]="result" 
+          [data]="results" 
           [labels]="pieChartLabels" 
           [chartType]="pieChartType"
           [options]="pieChartOptions"

@@ -8,16 +8,20 @@ import { SummaryComponent } from '../summary/summary.component';
 
 const routes: Routes = [
   {
-      path: '',
+      path: 'landing/:id',
       component: LandingComponent,
   },
   {
-    path: 'questions',
+    path: 'questions/:id',
     component: QuestionsComponent
   },
   {
-    path: 'summary',
+    path: 'summary/:id',
     component: SummaryComponent
+  },
+  {
+    path: '',
+    component: LandingComponent
   }
 ];
 
