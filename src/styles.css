@@ -2,7 +2,7 @@
 
 html, body { height: 100%; }
 body {
-     margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; 
-     background-color: violet;
+     margin: 10; font-family: 'Rubik', sans-serif; 
+     background-color: #255f96;
      overflow: hidden;
     }

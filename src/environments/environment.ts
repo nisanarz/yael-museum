@@ -5,13 +5,14 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: "AIzaSyAz4TtPDg_v9WH-UfRT-Mv_z7SisUt8OcE",
-    authDomain: "yael-museum.firebaseapp.com",
-    databaseURL: "https://yael-museum-default-rtdb.europe-west1.firebasedatabase.app",
-    projectId: "yael-museum",
-    storageBucket: "yael-museum.appspot.com",
-    messagingSenderId: "592672951837",
-    appId: "1:592672951837:web:7e831b1c6916fa586840f4"
+    apiKey: "AIzaSyB4wnLg3eHwMZoqrjuF1UP_2AxA31VI4Xw",
+    authDomain: "yael-museum-89772.firebaseapp.com",
+    databaseURL: "https://yael-museum-89772-default-rtdb.firebaseio.com",
+    projectId: "yael-museum-89772",
+    storageBucket: "yael-museum-89772.appspot.com",
+    messagingSenderId: "300456947844",
+    appId: "1:300456947844:web:afef86423de6c3a53992d1",
+    measurementId: "G-S4TMCCRL70"
   }
 };
 

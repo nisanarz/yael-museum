@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ChartType, ChartOptions } from 'chart.js';
 import { SingleDataSet, Label, Color, monkeyPatchChartJsLegend, monkeyPatchChartJsTooltip } from 'ng2-charts';
 import { ActivatedRoute} from '@angular/router';
+import 'chartjs-plugin-labels';
 import { AngularFireDatabase, AngularFireList, AngularFireObject } from '@angular/fire/database';
 import { Observable } from 'rxjs';
 
@@ -15,10 +16,16 @@ export class SummaryComponent implements OnInit {
   results:any;
   questionId = 0;
   questions: any;
+  questionText = '';
   isDataAvailable:boolean = false;
 
   public pieChartOptions: ChartOptions = {
     responsive: true,
+    plugins: {
+      labels: {
+        fontColor: 'white'
+      }
+    }
   };
   public pieChartLabels: Label[] = ['תשובה 1', 'תשובה 2', 'תשובה3', 'תשובה 4'];
   public pieChartData: SingleDataSet = [30, 50, 20];
@@ -27,7 +34,7 @@ export class SummaryComponent implements OnInit {
   public pieChartPlugins = [];
   public pieChartColors: Color[] = [
     { 
-      backgroundColor:["#FF7360", "#6FC8CE", "#FAFFF2", "#FFFCC4", "#B9E8E0"] 
+      backgroundColor:["#1b2754", "#255f96", "#d8504a", "#b0211b", "#faf8ed"] 
     }
   ]
 
@@ -37,9 +44,9 @@ export class SummaryComponent implements OnInit {
 
       this.db.list('results').valueChanges().subscribe(results => {
         this.results = results[this.questionId];
-        console.log(this.results)
         this.db.list('questions').valueChanges().subscribe(questions => {
           this.questions = questions[this.questionId];
+          this.questionText = this.questions['question'];
           this.pieChartLabels = this.questions['answers'];
           this.isDataAvailable = true;
         });

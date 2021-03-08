@@ -1,20 +1,27 @@
 <div class="container">
   <div class="row">
     <div class="col-2"></div>
-    <div class="col-4">
+    <div class="col-8">
       <div class="row" *ngIf="isDataAvailable">
         <div class="col" >
-          <div class="row">
+          <div class="row text-right">
             <h4>{{questions.question}}</h4>
           </div>
-          <div class="row" *ngFor="let answer of questions.answers; let aId = index">
+          <div class="row text-right" *ngFor="let answer of questions.answers; let aId = index">
             <div class="radio">
-              <label><input type="radio" name="optradio" (click)="selection=aId">{{answer}}</label>
+              <label class="radio-inline" style="padding-left:15px;"><input type="radio" name="optradio" (click)="selection=aId" style="padding-left:15px;">
+                <span>{{answer}}</span>
+              </label>
             </div>
           </div>
         </div>
       </div>
-      <button type="button" class="btn btn-primary" (click)="saveResult()">שלח</button>
+      <div class="row">
+        <div class="col text-center">
+          <button type="button" class="btn btn-primary" (click)="saveResult()">שלח</button>
+        </div>
+      </div>
+      
     </div>
   </div>  
 </div>
