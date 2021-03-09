@@ -5,14 +5,14 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: "AIzaSyAOSRcDoHgKHM1SI_pAiAao3D7W_lS970E",
-    authDomain: "art-museum-haifa.firebaseapp.com",
-    databaseURL: "https://art-museum-haifa-default-rtdb.firebaseio.com",
-    projectId: "art-museum-haifa",
-    storageBucket: "art-museum-haifa.appspot.com",
-    messagingSenderId: "688833073199",
-    appId: "1:688833073199:web:08afd846bcdb413ba736da",
-    measurementId: "G-X6VNC65SF6"
+    apiKey: "AIzaSyB4wnLg3eHwMZoqrjuF1UP_2AxA31VI4Xw",
+    authDomain: "yael-museum-89772.firebaseapp.com",
+    databaseURL: "https://yael-museum-89772-default-rtdb.firebaseio.com",
+    projectId: "yael-museum-89772",
+    storageBucket: "yael-museum-89772.appspot.com",
+    messagingSenderId: "300456947844",
+    appId: "1:300456947844:web:afef86423de6c3a53992d1",
+    measurementId: "G-S4TMCCRL70"
   }
 };
 

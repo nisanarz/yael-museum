@@ -4,7 +4,7 @@
       צפה בתוצאות הסקר 
     </h3> 
   </div>
-  <div class="row"> 
+  <div class="row text-right"> 
     &nbsp;
   <p>
     {{questionText}}
@@ -20,7 +20,8 @@
           [options]="pieChartOptions"
           [plugins]="pieChartPlugins"
           [legend]="pieChartLegend"
-          [colors]="pieChartColors">
+          [colors]="pieChartColors"
+          width="80%" height="80%">
         </canvas>
       </div>
     </div>
